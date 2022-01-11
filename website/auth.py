@@ -4,7 +4,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 from . import db
 
-
 auth = Blueprint("login", __name__)
 
 # SignUp route 
@@ -33,7 +32,6 @@ def signUp():
             flash("Account created!", category="success")
             return redirect(url_for("view.home"))
 
-
     return render_template("signup.html", user=current_user)
 
 # Login route
@@ -43,7 +41,6 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
         
-
         user = User.query.filter_by(username=username).first()
         if user:
             if check_password_hash(user.password, password):
