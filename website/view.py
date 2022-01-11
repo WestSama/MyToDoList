@@ -6,10 +6,7 @@ from werkzeug.utils import redirect
 from .dbmodel import Notes, Archive
 from . import db
 
-
 view = Blueprint("view", __name__)
-
-
 
 # Homepage Route
 @view.route("/", methods=["GET", "POST"])
