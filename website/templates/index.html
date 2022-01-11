@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{%block title%}HomePage{% endblock %}
+
+{% block main%}
+<div class="table-responsive">
+  <table id="table" autocomplete="off" class="table table-dark table-bordered table-hover">
+      <thead>
+          <tr>
+              <th class="text-center">Check</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">ToDoInfo</th>
+              <th class="d-none ">ToDo Time Added</th>
+              <th class="text-center" style="width: 100px;"><button class="btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" value="delete">Delete All</button></form></th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for note in user.notes %}
+          <tr>
+              <td class="text-center" style="width: 100px;"><form action="{{ url_for('view.delete2', id=note.id) }}" method="POST"><button class="btn btn-success" type="submit" value=""></button></form></td>
+              <td class="text-center "style="width: 150px;"><button id="btnTest" type="button" onclick="myTest(this)" class="btn btn-warning">In Progress</button></td>
+              <td class="text-break fs-4">{{ note.text }} {% if note.status != "False" %} <span id="blink" class="badge bg-info text-dark" style="margin-left: 20px;">Important</span>{% endif %}  </td>
+              <td class="d-none ">{{ note.time }}</td>
+              <td class="text-center "><form action="{{ url_for('view.delete', id=note.id) }}" method="POST"><button class="btn btn-close" style="background-color: #fd3d50;" aria-label="close" type="submit" value="delete"></button></form></td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+<form action="/" method="POST">
+  <input name="todo" autocomplete="off" id="todo" class="form-control mb-3"></input>  
+  <select name="test" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+    <option selected>Is this task important?</option>
+    <option name="yes" id="yes" value="1">Yes</option>
+    <option name="no" id="no" value="2">No</option>
+  </select>
+    <div align="center">
+        <button type="submit" class="btn btn-dark">Add ToDo</button>
+    </div>
+</form>
+
+<!-- BootStrap Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete all</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete all?
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <form action="{{ url_for('view.deleteAll') }}" method="POST" ><button type="submit"  value="delete" class="btn btn-primary">Yes</button></form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

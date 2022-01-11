@@ -1,0 +1,17 @@
+body {
+    background-color: black;
+    background: black;
+   
+}
+
+main {
+    overflow-x: auto;
+    text-align: center;
+}
+
+#blink {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker{
+    50% {opacity: 0;}
+}
