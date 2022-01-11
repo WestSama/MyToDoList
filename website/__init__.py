@@ -1,13 +1,10 @@
 from flask import Flask, app
 from flask_sqlalchemy import SQLAlchemy
 from os import path
-
 from flask_login import LoginManager
-
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
-
 
 def create_app():
     
@@ -17,9 +14,6 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     db.init_app(app)
-
-    
-    
 
     # Register blueprints
     from .view import view
