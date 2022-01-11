@@ -18,7 +18,7 @@ def home():
     if request.method == "POST":
     
         note = request.form.get("todo")
-        select = request.form.get("test")
+        select = request.form.get("select")
         
         userID = current_user.id
         
@@ -27,9 +27,9 @@ def home():
         else:
             if select == "1":
                 db.engine.execute("INSERT INTO notes(text, time, status, user_id) VALUES(?, CURRENT_TIMESTAMP, 'True', ?)", note, userID)
-            elif select == "2":
+            else:
                 db.engine.execute("INSERT INTO notes(text, time, status, user_id) VALUES(?, CURRENT_TIMESTAMP, 'False', ?)", note, userID)
-            flash("ToDo has been added.", category="success")
+            #flash("ToDo has been added.", category="success")
             return redirect("/")
         print(select)
     return render_template("index.html", user=current_user)

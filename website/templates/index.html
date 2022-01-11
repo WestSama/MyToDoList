@@ -29,11 +29,10 @@
 </div>
 <form action="/" method="POST">
   <input name="todo" autocomplete="off" id="todo" class="form-control mb-3"></input>  
-  <select name="test" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-    <option selected>Is this task important?</option>
-    <option name="yes" id="yes" value="1">Yes</option>
-    <option name="no" id="no" value="2">No</option>
-  </select>
+  <input class="form-check-input" name="select" type="checkbox" value="1" id="flexCheckDefault">
+  <label class="form-check-label mb-3 badge bg-dark text-wrap" for="flexCheckDefault">
+    Is this task important?
+  </label>
     <div align="center">
         <button type="submit" class="btn btn-dark">Add ToDo</button>
     </div>
