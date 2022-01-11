@@ -1,10 +1,10 @@
+// Dark/Light Theme change
 const btnToggle = document.getElementById("toggleDark");
 const body = document.querySelector("body");
 const table = document.getElementById("table")
 const navBar = document.getElementById("navBar")
 const footer = document.getElementById("footer")
 const table2 = document.getElementById("table2")
-
 
 body.style.background = "rgb(29 29 30)"
 
@@ -31,9 +31,7 @@ btnToggle.addEventListener("click", function() {
         {
             table.classList.remove("table-primary")
             table.classList.add("table-dark")   
-        }
-      
-        
+        }  
     }
     else
     {
@@ -57,23 +55,18 @@ btnToggle.addEventListener("click", function() {
             table.classList.remove("table-dark")
             table.classList.add("table-primary")  
         }
-        
-        
     }    
  });
 
-
+// In progress (Button)
 function myTest(element) 
 {
-    
     if(element.classList.contains("btn-warning"))
     { 
         element.innerText = "On Hold";
         element.classList.remove("btn-warning")
         element.classList.add("btn-secondary")
-        window.localStorage.setItem("btn", "btn-secondary")
-        
-        
+        window.localStorage.setItem("btn", "btn-secondary")            
     }
     else
     {
@@ -81,10 +74,7 @@ function myTest(element)
         element.classList.remove("btn-secondary")
         element.classList.add("btn-warning")
         window.localStorage.setItem("btn", "btn-warning")
-        
-        
-    }
-    
+    }  
 };
 localStorage.getItem("btn")
 
