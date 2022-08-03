@@ -1,5 +1,7 @@
 #MyToDoList
 
+Project Video: https://www.youtube.com/watch?v=yjcu5uxU_Sg
+
 (Description about project)
 - This is my first project since i start learning how to coding, this was the final project for the CS50x course.
 - It's a simple Task saver with login/signup.
